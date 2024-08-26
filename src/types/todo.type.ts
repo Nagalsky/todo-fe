@@ -4,5 +4,4 @@ export type ITodo = {
 	isCompleted: boolean
 }
 
-export type ITodoCrete = Pick<ITodo, 'description'> &
-	Partial<Pick<ITodo, '_id'>>
+export type ITodoCrete = Pick<ITodo, 'description'>
