@@ -6,7 +6,11 @@ export const useTodos = () => {
 		queryKey: ['todos'],
 		queryFn: TodoService.getAll,
 		select: data => {
-			return data.reverse()
+			return data.sort((a, b) => {
+				const timestampA = parseInt(a._id.substring(0, 8), 16)
+				const timestampB = parseInt(b._id.substring(0, 8), 16)
+				return timestampB - timestampA
+			})
 		},
 	})
 }
